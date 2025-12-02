@@ -41,5 +41,15 @@ app.use((req, res) => {
   });
 });
 
-// ❗ WAJIB untuk Vercel – JANGAN pakai app.listen()
 export default app;
+
+// HANYA jalan secara lokal
+if (process.env.NODE_ENV !== "production") {
+  const PORT = process.env.PORT || 4000;
+  app.listen(PORT, () => {
+    console.log(`Local server running on port ${PORT}`);
+  });
+}
+
+
+
